@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pie Chart with Google Charts</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Category', 'Amount'], // Replace with your data headers
+        ['Cluster A', 14.5],        // Replace with actual data
+        ['Cluster B', 34.6],        // Replace with actual data
+        ['Cluster C', 23.8],        // Replace with actual data
+        ['Cluster D', 6],        // Replace with actual data
+        ['Cluster E', 21.1]
+      ]);
+
+      var options = {
+        //title: 'My Pie Chart',
+        colors: ['#e0440e', '#3cb570', '#4c3cb5', '#bfde10', '#10aade'], // Custom color palette
+        is3D: true, // Optional: Add 3D effect
+        //rientation: 'horizontal'
+      };
+      
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <div id="piechart" style="width: 800px; height: 600px;"></div>
+</body>
+</html>
